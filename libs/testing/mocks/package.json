@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/testing-mocks",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "testing-mocks",
+    "tags": [
+      "scope:testing type:mocks"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/testing/mocks",
+          "tsConfig": "libs/testing/mocks/tsconfig.lib.json",
+          "packageJson": "libs/testing/mocks/package.json",
+          "main": "libs/testing/mocks/src/index.ts",
+          "assets": [
+            "libs/testing/mocks/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/testing-helpers",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "testing-helpers",
+    "tags": [
+      "scope:testing type:helpers"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/testing/helpers",
+          "tsConfig": "libs/testing/helpers/tsconfig.lib.json",
+          "packageJson": "libs/testing/helpers/package.json",
+          "main": "libs/testing/helpers/src/index.ts",
+          "assets": [
+            "libs/testing/helpers/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

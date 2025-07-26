@@ -83,6 +83,30 @@
     },
     {
       "path": "./libs/observability/monitoring"
+    },
+    {
+      "path": "./libs/infrastructure/queue"
+    },
+    {
+      "path": "./libs/infrastructure/cache"
+    },
+    {
+      "path": "./libs/infrastructure/config"
+    },
+    {
+      "path": "./libs/infrastructure/telemetry"
+    },
+    {
+      "path": "./libs/testing/fixtures"
+    },
+    {
+      "path": "./libs/testing/mocks"
+    },
+    {
+      "path": "./libs/testing/factories"
+    },
+    {
+      "path": "./libs/testing/helpers"
     }
   ]
 }

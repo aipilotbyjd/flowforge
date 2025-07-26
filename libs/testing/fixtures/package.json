@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/testing-fixtures",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "testing-fixtures",
+    "tags": [
+      "scope:testing type:fixtures"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/testing/fixtures",
+          "tsConfig": "libs/testing/fixtures/tsconfig.lib.json",
+          "packageJson": "libs/testing/fixtures/package.json",
+          "main": "libs/testing/fixtures/src/index.ts",
+          "assets": [
+            "libs/testing/fixtures/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
