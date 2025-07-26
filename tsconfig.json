@@ -38,6 +38,12 @@
     },
     {
       "path": "./libs/workflow-engine/validator"
+    },
+    {
+      "path": "./libs/workflow-engine/executor"
+    },
+    {
+      "path": "./libs/workflow-engine/optimizer"
     }
   ]
 }
