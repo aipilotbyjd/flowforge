@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/connectors-messaging",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "connectors-messaging",
+    "tags": [
+      "scope:connectors type:messaging"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/connectors/messaging",
+          "tsConfig": "libs/connectors/messaging/tsconfig.lib.json",
+          "packageJson": "libs/connectors/messaging/package.json",
+          "main": "libs/connectors/messaging/src/index.ts",
+          "assets": [
+            "libs/connectors/messaging/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -50,6 +50,18 @@
     },
     {
       "path": "./libs/connectors/database"
+    },
+    {
+      "path": "./libs/connectors/cloud"
+    },
+    {
+      "path": "./libs/connectors/messaging"
+    },
+    {
+      "path": "./libs/connectors/email"
+    },
+    {
+      "path": "./libs/observability/logging"
     }
   ]
 }

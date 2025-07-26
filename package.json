@@ -44,7 +44,8 @@
     "libs/core/*",
     "libs/data-access/*",
     "libs/workflow-engine/*",
-    "libs/connectors/*"
+    "libs/connectors/*",
+    "libs/observability/*"
   ],
   "dependencies": {
     "@nestjs/common": "^11.0.0",
