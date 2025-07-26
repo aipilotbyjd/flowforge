@@ -44,6 +44,9 @@
     },
     {
       "path": "./libs/workflow-engine/optimizer"
+    },
+    {
+      "path": "./libs/connectors/http"
     }
   ]
 }
