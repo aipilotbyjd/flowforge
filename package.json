@@ -42,7 +42,8 @@
     "packages/*",
     "apps/*",
     "libs/core/*",
-    "libs/data-access/*"
+    "libs/data-access/*",
+    "libs/workflow-engine/*"
   ],
   "dependencies": {
     "@nestjs/common": "^11.0.0",

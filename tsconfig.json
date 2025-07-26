@@ -33,5 +33,11 @@
     {
       "path": "./libs/data-access/repositories"
     },
+    {
+      "path": "./libs/workflow-engine/compiler"
+    },
+    {
+      "path": "./libs/workflow-engine/validator"
+    }
   ]
 }
