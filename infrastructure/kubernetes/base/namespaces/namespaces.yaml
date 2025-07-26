@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flowforge-system
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: system
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flowforge-monitoring
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: monitoring
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flowforge-database
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: database
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: flowforge-messaging
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: messaging

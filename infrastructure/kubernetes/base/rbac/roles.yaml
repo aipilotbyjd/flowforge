@@ -1,0 +1,77 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flowforge-api-role
+  namespace: flowforge-system
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+- apiGroups: ["apps"]
+  resources: ["deployments", "replicasets"]
+  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flowforge-engine-role
+  namespace: flowforge-system
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services", "configmaps"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: flowforge-executor-role
+  namespace: flowforge-system
+rules:
+- apiGroups: [""]
+  resources: ["pods", "configmaps", "secrets"]
+  verbs: ["get", "list", "watch"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: flowforge-api-rolebinding
+  namespace: flowforge-system
+subjects:
+- kind: ServiceAccount
+  name: flowforge-api
+  namespace: flowforge-system
+roleRef:
+  kind: Role
+  name: flowforge-api-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: flowforge-engine-rolebinding
+  namespace: flowforge-system
+subjects:
+- kind: ServiceAccount
+  name: flowforge-engine
+  namespace: flowforge-system
+roleRef:
+  kind: Role
+  name: flowforge-engine-role
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: flowforge-executor-rolebinding
+  namespace: flowforge-system
+subjects:
+- kind: ServiceAccount
+  name: flowforge-executor
+  namespace: flowforge-system
+roleRef:
+  kind: Role
+  name: flowforge-executor-role
+  apiGroup: rbac.authorization.k8s.io

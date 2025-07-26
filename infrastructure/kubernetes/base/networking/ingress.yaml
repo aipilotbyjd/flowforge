@@ -1,0 +1,99 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flowforge-ingress
+  namespace: flowforge-system
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    nginx.ingress.kubernetes.io/rate-limit: "100"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+spec:
+  tls:
+  - hosts:
+    - api.flowforge.local
+    - app.flowforge.local
+    secretName: flowforge-tls
+  rules:
+  - host: api.flowforge.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flowforge-api-service
+            port:
+              number: 3000
+  - host: app.flowforge.local
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: flowforge-frontend-service
+            port:
+              number: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flowforge-api-service
+  namespace: flowforge-system
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: api-gateway
+spec:
+  selector:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: api-gateway
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flowforge-engine-service
+  namespace: flowforge-system
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: workflow-engine
+spec:
+  selector:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: workflow-engine
+  ports:
+  - name: http
+    port: 3001
+    targetPort: 3001
+  - name: grpc
+    port: 50051
+    targetPort: 50051
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: flowforge-executor-service
+  namespace: flowforge-system
+  labels:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: node-executor
+spec:
+  selector:
+    app.kubernetes.io/name: flowforge
+    app.kubernetes.io/component: node-executor
+  ports:
+  - name: http
+    port: 3002
+    targetPort: 3002
+  type: ClusterIP
