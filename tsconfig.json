@@ -28,9 +28,6 @@
       "path": "./libs/data-access/database"
     },
     {
-      "path": "./data-access-repositories"
-    },
-    {
       "path": "./libs/data-access/migrations"
     },
     {
