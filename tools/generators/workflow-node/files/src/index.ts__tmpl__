@@ -1,0 +1,2 @@
+export * from './lib/<%= name %>.service';
+export * from './lib/<%= name %>.module';

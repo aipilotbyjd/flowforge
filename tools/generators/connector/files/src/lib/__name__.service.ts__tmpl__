@@ -1,0 +1,87 @@
+import { Injectable, Logger } from '@nestjs/common';
+import { ConnectorInterface, ConnectionConfig } from '@flowforge/core/types';
+
+@Injectable()
+export class <%= classify(name) %>Service implements ConnectorInterface {
+  private readonly logger = new Logger(<%= classify(name) %>Service.name);
+
+  async connect(config: ConnectionConfig): Promise<boolean> {
+    this.logger.log('Connecting to <%= classify(name) %>...');
+    
+    try {
+      // Implement connection logic here
+      const isConnected = await this.establishConnection(config);
+      
+      if (isConnected) {
+        this.logger.log('<%= classify(name) %> connection established successfully');
+        return true;
+      } else {
+        this.logger.error('Failed to establish <%= classify(name) %> connection');
+        return false;
+      }
+    } catch (error) {
+      this.logger.error('Connection error:', error);
+      throw error;
+    }
+  }
+
+  async disconnect(): Promise<void> {
+    this.logger.log('Disconnecting from <%= classify(name) %>...');
+    
+    try {
+      // Implement disconnection logic here
+      await this.closeConnection();
+      this.logger.log('<%= classify(name) %> disconnected successfully');
+    } catch (error) {
+      this.logger.error('Disconnection error:', error);
+      throw error;
+    }
+  }
+
+  async executeOperation(operation: string, params: any): Promise<any> {
+    this.logger.log(`Executing <%= classify(name) %> operation: ${operation}`);
+    
+    try {
+      // Implement operation execution logic here
+      const result = await this.performOperation(operation, params);
+      
+      return {
+        success: true,
+        data: result,
+        timestamp: new Date().toISOString(),
+      };
+    } catch (error) {
+      this.logger.error('Operation execution failed:', error);
+      throw error;
+    }
+  }
+
+  private async establishConnection(config: ConnectionConfig): Promise<boolean> {
+    // Implement connector-specific connection logic
+    this.logger.debug('Establishing connection with config:', config);
+    
+    // Example implementation - replace with actual connector logic
+    return Promise.resolve(true);
+  }
+
+  private async closeConnection(): Promise<void> {
+    // Implement connector-specific disconnection logic
+    this.logger.debug('Closing connection');
+    
+    // Example implementation - replace with actual connector logic
+    return Promise.resolve();
+  }
+
+  private async performOperation(operation: string, params: any): Promise<any> {
+    // Implement connector-specific operation logic
+    this.logger.debug(`Performing operation ${operation} with params:`, params);
+    
+    // Example implementation - replace with actual connector logic
+    return {
+      operation,
+      params,
+      result: 'success',
+      executedAt: new Date().toISOString(),
+    };
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "WorkflowNode",
+  "title": "Workflow Node Generator",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the workflow node",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
+    },
+    "category": {
+      "type": "string",
+      "description": "The category of the workflow node",
+      "enum": ["trigger", "action", "transformation", "utility", "integration"],
+      "default": "action"
+    },
+    "directory": {
+      "type": "string",
+      "description": "The directory to generate the node in",
+      "default": "libs/nodes"
+    },
+    "tags": {
+      "type": "string",
+      "description": "Add tags to the project (used for linting)",
+      "alias": "t"
+    }
+  },
+  "required": ["name"]
+}

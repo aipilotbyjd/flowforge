@@ -59,6 +59,33 @@
       "preVersionCommand": "npx nx run-many -t build"
     }
   },
+  "generators": {
+    "@nx/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nx/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "./tools/generators/workflow-node": {
+      "workflow-node": {
+        "directory": "libs/nodes"
+      }
+    },
+    "./tools/generators/connector": {
+      "connector": {
+        "directory": "libs/connectors"
+      }
+    }
+  },
+  "executors": {
+    "./tools/executors/docker-build": {
+      "build": {}
+    }
+  },
   "targetDefaults": {
     "test": {
       "dependsOn": ["^build"]

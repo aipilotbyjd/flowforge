@@ -2,7 +2,16 @@
   "name": "@flowforge/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "deploy:dev": "bash tools/scripts/deploy/deploy-dev.sh",
+    "deploy:staging": "bash tools/scripts/deploy/deploy-staging.sh",
+    "deploy:prod": "bash tools/scripts/deploy/deploy-prod.sh",
+    "db:migrate": "bash tools/scripts/database/migrate.sh",
+    "db:seed": "bash tools/scripts/database/seed.sh",
+    "health:check": "bash tools/scripts/monitoring/health-check.sh",
+    "generate:node": "nx generate ./tools/generators/workflow-node",
+    "generate:connector": "nx generate ./tools/generators/connector"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",

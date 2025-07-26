@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "connector": {
+      "implementation": "./index",
+      "schema": "./schema.json",
+      "description": "Generate a new connector for external service integrations"
+    }
+  }
+}

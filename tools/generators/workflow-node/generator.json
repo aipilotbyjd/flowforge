@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "workflow-node": {
+      "implementation": "./index",
+      "schema": "./schema.json",
+      "description": "Generate a new workflow node with service and module files"
+    }
+  }
+}

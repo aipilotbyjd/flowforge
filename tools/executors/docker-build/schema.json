@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "DockerBuild",
+  "title": "Docker Build Executor",
+  "type": "object",
+  "properties": {
+    "dockerfile": {
+      "type": "string",
+      "description": "Path to Dockerfile"
+    },
+    "context": {
+      "type": "string",
+      "description": "Build context directory"
+    },
+    "imageName": {
+      "type": "string",
+      "description": "Docker image name"
+    },
+    "imageTag": {
+      "type": "string",
+      "description": "Docker image tag"
+    },
+    "buildArgs": {
+      "type": "object",
+      "description": "Build arguments"
+    },
+    "push": {
+      "type": "boolean",
+      "description": "Push image to registry",
+      "default": false
+    }
+  },
+  "required": ["dockerfile", "imageName"]
+}

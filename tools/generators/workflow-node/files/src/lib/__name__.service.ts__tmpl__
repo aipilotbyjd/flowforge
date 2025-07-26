@@ -1,0 +1,41 @@
+import { Injectable, Logger } from '@nestjs/common';
+import { NodeExecutionContext } from '@flowforge/core/types';
+
+@Injectable()
+export class <%= classify(name) %>Service {
+  private readonly logger = new Logger(<%= classify(name) %>Service.name);
+
+  async execute(context: NodeExecutionContext): Promise<any> {
+    this.logger.log('Executing <%= classify(name) %> node');
+    
+    // Implement node logic here
+    const inputData = context.inputData;
+    const parameters = context.parameters;
+    
+    try {
+      // Your node-specific logic
+      const result = await this.processNode(inputData, parameters);
+      
+      return {
+        success: true,
+        data: result,
+        timestamp: new Date().toISOString(),
+      };
+    } catch (error) {
+      this.logger.error('Node execution failed:', error);
+      throw error;
+    }
+  }
+
+  private async processNode(inputData: any, parameters: any): Promise<any> {
+    // Implement your node processing logic
+    this.logger.debug('Processing node with parameters:', parameters);
+    
+    // Example implementation
+    return {
+      processed: true,
+      originalData: inputData,
+      ...parameters,
+    };
+  }
+}
