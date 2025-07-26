@@ -29,8 +29,7 @@
           "buildDepsName": "build-deps",
           "watchDepsName": "watch-deps"
         }
-      },
-      "exclude": ["libs/workflow-engine/executor/*"]
+      }
     },
     {
       "plugin": "@nx/webpack/plugin",
@@ -52,15 +51,6 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
-    },
-    {
-      "plugin": "@nx/js/typescript",
-      "include": ["libs/workflow-engine/executor/*"],
-      "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        }
       }
     }
   ],

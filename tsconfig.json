@@ -33,8 +33,5 @@
     {
       "path": "./libs/data-access/repositories"
     },
-    {
-      "path": "./libs/workflow-engine/executor"
-    }
   ]
 }
