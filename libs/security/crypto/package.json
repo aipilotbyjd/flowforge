@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/security-crypto",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "security-crypto",
+    "tags": [
+      "scope:security type:crypto"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/security/crypto",
+          "tsConfig": "libs/security/crypto/tsconfig.lib.json",
+          "packageJson": "libs/security/crypto/package.json",
+          "main": "libs/security/crypto/src/index.ts",
+          "assets": [
+            "libs/security/crypto/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

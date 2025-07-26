@@ -62,6 +62,27 @@
     },
     {
       "path": "./libs/observability/logging"
+    },
+    {
+      "path": "./libs/security/crypto"
+    },
+    {
+      "path": "./libs/security/auth"
+    },
+    {
+      "path": "./libs/security/rbac"
+    },
+    {
+      "path": "./libs/security/audit"
+    },
+    {
+      "path": "./libs/observability/metrics"
+    },
+    {
+      "path": "./libs/observability/tracing"
+    },
+    {
+      "path": "./libs/observability/monitoring"
     }
   ]
 }

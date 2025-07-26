@@ -1,0 +1,43 @@
+{
+  "name": "@flowforge/security-rbac",
+  "version": "0.0.1",
+  "private": true,
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "development": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "nx": {
+    "name": "security-rbac",
+    "tags": [
+      "scope:security type:rbac"
+    ],
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "dist/libs/security/rbac",
+          "tsConfig": "libs/security/rbac/tsconfig.lib.json",
+          "packageJson": "libs/security/rbac/package.json",
+          "main": "libs/security/rbac/src/index.ts",
+          "assets": [
+            "libs/security/rbac/*.md"
+          ]
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
