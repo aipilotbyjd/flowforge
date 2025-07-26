@@ -1,0 +1,20 @@
+{
+  "name": "core-entities",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/entities/src",
+  "projectType": "library",
+  "tags": ["scope:core type:entities"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/core/entities",
+        "tsConfig": "libs/core/entities/tsconfig.lib.json",
+        "packageJson": "libs/core/entities/package.json",
+        "main": "libs/core/entities/src/index.ts",
+        "assets": ["libs/core/entities/*.md"]
+      }
+    }
+  }
+}

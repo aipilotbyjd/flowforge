@@ -1,0 +1,20 @@
+{
+  "name": "data-access-repositories",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/data-access/repositories/src",
+  "projectType": "library",
+  "tags": ["scope:data-access type:repositories"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/data-access/repositories",
+        "tsConfig": "libs/data-access/repositories/tsconfig.lib.json",
+        "packageJson": "libs/data-access/repositories/package.json",
+        "main": "libs/data-access/repositories/src/index.ts",
+        "assets": ["libs/data-access/repositories/*.md"]
+      }
+    }
+  }
+}

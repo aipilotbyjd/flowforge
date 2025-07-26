@@ -1,0 +1,20 @@
+{
+  "name": "core-dtos",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/dtos/src",
+  "projectType": "library",
+  "tags": ["scope:core type:dtos"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/core/dtos",
+        "tsConfig": "libs/core/dtos/tsconfig.lib.json",
+        "packageJson": "libs/core/dtos/package.json",
+        "main": "libs/core/dtos/src/index.ts",
+        "assets": ["libs/core/dtos/*.md"]
+      }
+    }
+  }
+}

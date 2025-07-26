@@ -1,0 +1,20 @@
+{
+  "name": "core-enums",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/enums/src",
+  "projectType": "library",
+  "tags": ["scope:core type:enums"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/core/enums",
+        "tsConfig": "libs/core/enums/tsconfig.lib.json",
+        "packageJson": "libs/core/enums/package.json",
+        "main": "libs/core/enums/src/index.ts",
+        "assets": ["libs/core/enums/*.md"]
+      }
+    }
+  }
+}

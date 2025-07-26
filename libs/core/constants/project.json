@@ -1,0 +1,20 @@
+{
+  "name": "core-constants",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core/constants/src",
+  "projectType": "library",
+  "tags": ["scope:core type:constants"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/core/constants",
+        "tsConfig": "libs/core/constants/tsconfig.lib.json",
+        "packageJson": "libs/core/constants/package.json",
+        "main": "libs/core/constants/src/index.ts",
+        "assets": ["libs/core/constants/*.md"]
+      }
+    }
+  }
+}

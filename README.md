@@ -88,3 +88,71 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+
+flowforge-enterprise/
+├── apps/                          # Deployable applications
+│   ├── api-gateway/              # Main API entry point
+│   ├── workflow-engine/          # Core workflow execution service
+│   ├── node-executor/            # Distributed node execution workers
+│   ├── webhook-handler/          # HTTP trigger processing
+│   ├── scheduler-service/        # Cron and scheduled workflows
+│   ├── notification-service/     # Email, SMS, push notifications
+│   └── analytics-service/        # Business intelligence and reporting
+├── libs/                         # Shared libraries (The NX Secret Sauce)
+│   ├── core/                    # Core business logic
+│   │   ├── types/              # Shared TypeScript interfaces and enums
+│   │   ├── entities/           # TypeORM entities
+│   │   ├── dtos/               # Data Transfer Objects
+│   │   ├── enums/              # Shared enumerations
+│   │   └── constants/          # Application constants
+│   ├── data-access/            # Database access layer
+│   │   ├── repositories/       # Repository patterns
+│   │   ├── migrations/         # Database migrations
+│   │   └── database/           # Database configuration
+│   ├── workflow-engine/        # Workflow execution logic
+│   │   ├── compiler/           # Workflow compilation
+│   │   ├── executor/           # Node execution engine
+│   │   ├── validator/          # Workflow validation
+│   │   └── optimizer/          # Execution optimization
+│   ├── connectors/             # Integration connectors
+│   │   ├── http/               # HTTP connectors
+│   │   ├── database/           # Database connectors
+│   │   ├── cloud/              # Cloud service connectors
+│   │   ├── messaging/          # Message queue connectors
+│   │   └── email/              # Email providers
+│   ├── security/               # Security framework
+│   │   ├── auth/               # Authentication
+│   │   ├── crypto/             # Encryption services
+│   │   ├── rbac/               # Role-based access control
+│   │   └── audit/              # Audit logging
+│   ├── observability/          # Monitoring and observability
+│   │   ├── logging/            # Structured logging
+│   │   ├── metrics/            # Metrics collection
+│   │   ├── tracing/            # Distributed tracing
+│   │   └── monitoring/         # Health checks and alerts
+│   ├── infrastructure/         # Infrastructure utilities
+│   │   ├── queue/              # Queue management
+│   │   ├── cache/              # Caching layer
+│   │   ├── config/             # Configuration management
+│   │   └── telemetry/          # Telemetry services
+│   └── testing/                # Shared testing utilities
+│       ├── fixtures/           # Test data fixtures
+│       ├── mocks/              # Mock services
+│       ├── factories/          # Test data factories
+│       └── helpers/            # Testing helpers
+├── tools/                       # Development tools
+│   ├── generators/             # NX generators
+│   ├── executors/              # Custom executors
+│   └── scripts/                # Utility scripts
+├── infrastructure/             # Infrastructure as Code
+│   ├── kubernetes/             # Kubernetes manifests
+│   ├── terraform/              # Terraform configurations
+│   ├── docker/                 # Docker configurations
+│   └── monitoring/             # Monitoring stack
+├── documentation/              # Project documentation
+│   ├── architecture/           # Architecture docs
+│   ├── api/                    # API documentation
+│   ├── deployment/             # Deployment guides
+│   └── user-guides/            # User documentation
+└── nx.json                     # NX configuration (The Heart of Everything)

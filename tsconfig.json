@@ -8,6 +8,33 @@
     },
     {
       "path": "./apps/api-gateway"
+    },
+    {
+      "path": "./libs/core/types"
+    },
+    {
+      "path": "./libs/core/entities"
+    },
+    {
+      "path": "./libs/core/dtos"
+    },
+    {
+      "path": "./libs/core/enums"
+    },
+    {
+      "path": "./libs/core/constants"
+    },
+    {
+      "path": "./libs/data-access/database"
+    },
+    {
+      "path": "./data-access-repositories"
+    },
+    {
+      "path": "./libs/data-access/migrations"
+    },
+    {
+      "path": "./libs/data-access/repositories"
     }
   ]
 }
