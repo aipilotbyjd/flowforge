@@ -9,7 +9,14 @@ import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { Request, Response } from 'express';
 import { LoggingService, LogContext } from './logging.service';
-import { v4 as uuidv4 } from 'uuid';
+// Using crypto for UUID generation to avoid external dependency
+function generateUuid(): string {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -23,8 +30,8 @@ export class LoggingInterceptor implements NestInterceptor {
     const startTime = Date.now();
 
     // Generate correlation ID if not present
-    const correlationId = request.headers['x-correlation-id'] as string || uuidv4();
-    const requestId = uuidv4();
+    const correlationId = request.headers['x-correlation-id'] as string || generateUuid();
+    const requestId = generateUuid();
 
     // Extract context information
     const logContext: LogContext = {

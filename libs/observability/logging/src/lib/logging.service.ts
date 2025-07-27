@@ -67,7 +67,7 @@ export class LoggingService {
       ...context,
       component: 'execution-engine',
       operation: 'complete',
-      metadata: { ...context.metadata, result: result ? 'success' : 'no-result' }
+      metadata: { ...(context.metadata || {}), result: result ? 'success' : 'no-result' }
     }, ['execution', 'complete', 'success'], {
       performance: { duration }
     });
@@ -101,7 +101,7 @@ export class LoggingService {
       ...context,
       component: 'node-executor',
       operation: status.toLowerCase(),
-      metadata: { ...context.metadata, nodeType }
+      metadata: { ...(context.metadata || {}), nodeType }
     }, ['node', 'execution', status.toLowerCase()], {
       performance: duration ? { duration } : undefined,
     });
@@ -115,7 +115,7 @@ export class LoggingService {
       ...context,
       component: 'retry-handler',
       operation: 'retry',
-      metadata: { ...context.metadata, attempt, maxRetries, reason }
+      metadata: { ...(context.metadata || {}), attempt, maxRetries, reason }
     }, ['retry', 'attempt']);
   }
 
@@ -127,7 +127,7 @@ export class LoggingService {
       ...context,
       component: 'queue-manager',
       operation: operation.toLowerCase(),
-      metadata: { ...context.metadata, queueName, jobId }
+      metadata: { ...(context.metadata || {}), queueName, jobId }
     }, ['queue', operation.toLowerCase()]);
   }
 
@@ -140,7 +140,7 @@ export class LoggingService {
       ...context,
       component: 'security',
       operation: 'security-event',
-      metadata: { ...context.metadata, event, severity }
+      metadata: { ...(context.metadata || {}), event, severity }
     }, ['security', 'event', severity]);
   }
 
@@ -170,7 +170,7 @@ export class LoggingService {
       ...context,
       component: 'webhook-handler',
       operation: event.toLowerCase(),
-      metadata: { ...context.metadata, httpStatus }
+      metadata: { ...(context.metadata || {}), httpStatus }
     }, ['webhook', event.toLowerCase()], {
       performance: { duration: responseTime }
     });
@@ -184,7 +184,7 @@ export class LoggingService {
       ...context,
       component: 'database',
       operation: operation.toLowerCase(),
-      metadata: { ...context.metadata, table }
+      metadata: { ...(context.metadata || {}), table }
     }, ['database', operation.toLowerCase()], {
       performance: duration ? { duration } : undefined,
     });

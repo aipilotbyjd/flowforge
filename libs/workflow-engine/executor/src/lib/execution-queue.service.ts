@@ -1,4 +1,4 @@
-import { Injectable, Logger, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit, OnModuleDestroy, Optional } from '@nestjs/common';
 import { InjectQueue, Process, Processor } from '@nestjs/bull';
 import { Job, Queue } from 'bull';
 import { WorkflowEntity } from './types';
@@ -59,10 +59,10 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
     @InjectQueue('node-execution') private nodeQueue: Queue,
     private workflowExecutorService: WorkflowExecutorService,
     private nodeExecutorService: NodeExecutorService,
-    private loggingService: LoggingService,
-    private errorHandlerService: ErrorHandlerService,
-    private circuitBreakerService: CircuitBreakerService,
-    private executionMonitorService: ExecutionMonitorService,
+    @Optional() private loggingService?: LoggingService,
+    @Optional() private errorHandlerService?: ErrorHandlerService,
+    @Optional() private circuitBreakerService?: CircuitBreakerService,
+    @Optional() private executionMonitorService?: ExecutionMonitorService,
   ) {}
 
   async onModuleInit() {
@@ -185,47 +185,59 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
     };
 
     // Record execution start in monitoring system
-    this.executionMonitorService.recordExecutionStart('workflow', executionId, logContext);
-    this.loggingService.logExecutionStart(logContext);
+    this.executionMonitorService?.recordExecutionStart('workflow', executionId, logContext);
+    this.loggingService?.logExecutionStart(logContext);
     
     this.activeExecutions.set(executionId, execution);
 
     try {
       await job.progress(10);
 
-      // Execute workflow with circuit breaker protection
-      const result = await this.circuitBreakerService.execute(
-        `workflow-executor`,
-        () => this.workflowExecutorService.executeWorkflow(
-          execution.workflow,
-          execution.inputData,
-          {
-            executionId,
-            mode: execution.mode,
-            userId: execution.userId,
-            organizationId: execution.organizationId,
-            metadata: execution.metadata,
-          }
-        ),
-        logContext,
-        {
-          failureThreshold: 5,
-          timeout: 300000, // 5 minutes
-        }
-      );
+      // Execute workflow with circuit breaker protection if available, otherwise execute directly
+      const result = this.circuitBreakerService 
+        ? await this.circuitBreakerService.execute(
+            `workflow-executor`,
+            () => this.workflowExecutorService.executeWorkflow(
+              execution.workflow,
+              execution.inputData,
+              {
+                executionId,
+                mode: execution.mode,
+                userId: execution.userId,
+                organizationId: execution.organizationId,
+                metadata: execution.metadata,
+              }
+            ),
+            logContext,
+            {
+              failureThreshold: 5,
+              timeout: 300000, // 5 minutes
+            }
+          )
+        : await this.workflowExecutorService.executeWorkflow(
+            execution.workflow,
+            execution.inputData,
+            {
+              executionId,
+              mode: execution.mode,
+              userId: execution.userId,
+              organizationId: execution.organizationId,
+              metadata: execution.metadata,
+            }
+          );
 
       await job.progress(100);
       const duration = Date.now() - startTime;
 
       // Record successful completion
-      this.executionMonitorService.recordExecutionComplete(
+      this.executionMonitorService?.recordExecutionComplete(
         'workflow',
         executionId,
         duration,
         logContext
       );
       
-      this.loggingService.logExecutionComplete(logContext, duration, result);
+      this.loggingService?.logExecutionComplete(logContext, duration, result);
       this.logger.log(`Workflow execution completed: ${executionId} (${duration}ms)`);
 
       return result;
@@ -234,10 +246,10 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
       const duration = Date.now() - startTime;
       
       // Process error through error handler
-      const processedError = this.errorHandlerService.processError(error as Error, logContext);
+      const processedError = this.errorHandlerService?.processError(error as Error, logContext);
       
       // Record execution failure
-      this.executionMonitorService.recordExecutionFailure(
+      this.executionMonitorService?.recordExecutionFailure(
         'workflow',
         executionId,
         duration,
@@ -250,10 +262,10 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
       this.executionHistory.set(executionId, execution);
 
       // Check if should retry based on error analysis
-      if (this.errorHandlerService.shouldRetry(processedError, execution.retryCount)) {
+      if (processedError && this.errorHandlerService?.shouldRetry(processedError, execution.retryCount)) {
         const retryDelay = this.errorHandlerService.calculateRetryDelay(processedError, execution.retryCount);
         
-        this.loggingService.logRetryAttempt(
+        this.loggingService?.logRetryAttempt(
           logContext,
           execution.retryCount,
           execution.maxRetries,
@@ -294,42 +306,58 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
     };
 
     // Record node execution start
-    this.executionMonitorService.recordExecutionStart('node', nodeExecution.nodeId, logContext);
-    this.loggingService.logNodeExecution(logContext, nodeExecution.nodeType, 'started');
+    this.executionMonitorService?.recordExecutionStart('node', nodeExecution.nodeId, logContext);
+    this.loggingService?.logNodeExecution(logContext, nodeExecution.nodeType, 'started');
 
     try {
       await job.progress(10);
 
-      // Execute node with circuit breaker protection
-      const result = await this.circuitBreakerService.execute(
-        `node-executor-${nodeExecution.nodeType}`,
-        () => this.nodeExecutorService.executeNode(
-          nodeExecution.nodeType,
-          nodeExecution.inputData,
-          {
-            nodeId: nodeExecution.nodeId,
-            nodeName: nodeExecution.nodeName,
-            parameters: nodeExecution.nodeParameters,
-            executionId: nodeExecution.executionId,
-            credentialId: nodeExecution.credentialId,
-            continueOnFail: nodeExecution.continueOnFail,
-            runIndex: nodeExecution.runIndex,
-            itemIndex: nodeExecution.itemIndex,
-            metadata: nodeExecution.metadata,
-          }
-        ),
-        logContext,
-        {
-          failureThreshold: 3,
-          timeout: 60000, // 1 minute for node execution
-        }
-      );
+      // Execute node with circuit breaker protection if available, otherwise execute directly
+      const result = this.circuitBreakerService
+        ? await this.circuitBreakerService.execute(
+            `node-executor-${nodeExecution.nodeType}`,
+            () => this.nodeExecutorService.executeNode(
+              nodeExecution.nodeType,
+              nodeExecution.inputData,
+              {
+                nodeId: nodeExecution.nodeId,
+                nodeName: nodeExecution.nodeName,
+                parameters: nodeExecution.nodeParameters,
+                executionId: nodeExecution.executionId,
+                credentialId: nodeExecution.credentialId,
+                continueOnFail: nodeExecution.continueOnFail,
+                runIndex: nodeExecution.runIndex,
+                itemIndex: nodeExecution.itemIndex,
+                metadata: nodeExecution.metadata,
+              }
+            ),
+            logContext,
+            {
+              failureThreshold: 3,
+              timeout: 60000, // 1 minute for node execution
+            }
+          )
+        : await this.nodeExecutorService.executeNode(
+            nodeExecution.nodeType,
+            nodeExecution.inputData,
+            {
+              nodeId: nodeExecution.nodeId,
+              nodeName: nodeExecution.nodeName,
+              parameters: nodeExecution.nodeParameters,
+              executionId: nodeExecution.executionId,
+              credentialId: nodeExecution.credentialId,
+              continueOnFail: nodeExecution.continueOnFail,
+              runIndex: nodeExecution.runIndex,
+              itemIndex: nodeExecution.itemIndex,
+              metadata: nodeExecution.metadata,
+            }
+          );
 
       await job.progress(100);
       const duration = Date.now() - startTime;
       
       // Record successful completion
-      this.executionMonitorService.recordExecutionComplete(
+      this.executionMonitorService?.recordExecutionComplete(
         'node',
         nodeExecution.nodeId,
         duration,
@@ -337,7 +365,7 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
         nodeExecution.nodeType
       );
       
-      this.loggingService.logNodeExecution(logContext, nodeExecution.nodeType, 'completed', duration);
+      this.loggingService?.logNodeExecution(logContext, nodeExecution.nodeType, 'completed', duration);
       
       return result;
 
@@ -345,10 +373,10 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
       const duration = Date.now() - startTime;
       
       // Process error through error handler
-      const processedError = this.errorHandlerService.processError(error as Error, logContext);
+      const processedError = this.errorHandlerService?.processError(error as Error, logContext);
       
       // Record execution failure
-      this.executionMonitorService.recordExecutionFailure(
+      this.executionMonitorService?.recordExecutionFailure(
         'node',
         nodeExecution.nodeId,
         duration,
@@ -362,7 +390,7 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
 
       // If continueOnFail is true, don't throw the error
       if (nodeExecution.continueOnFail) {
-        this.loggingService.logNodeExecution(
+        this.loggingService?.logNodeExecution(
           logContext, 
           nodeExecution.nodeType, 
           'failed_continue', 
@@ -374,10 +402,10 @@ export class ExecutionQueueService implements OnModuleInit, OnModuleDestroy {
       }
 
       // Check if should retry based on error analysis
-      if (this.errorHandlerService.shouldRetry(processedError, nodeExecution.retryCount)) {
+      if (processedError && this.errorHandlerService?.shouldRetry(processedError, nodeExecution.retryCount)) {
         const retryDelay = this.errorHandlerService.calculateRetryDelay(processedError, nodeExecution.retryCount);
         
-        this.loggingService.logRetryAttempt(
+        this.loggingService?.logRetryAttempt(
           logContext,
           nodeExecution.retryCount,
           nodeExecution.maxRetries,
