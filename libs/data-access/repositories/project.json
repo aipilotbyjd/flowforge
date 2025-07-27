@@ -4,6 +4,7 @@
   "sourceRoot": "libs/data-access/repositories/src",
   "projectType": "library",
   "tags": ["scope:data-access type:repositories"],
+  "implicitDependencies": ["core-entities"],
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",

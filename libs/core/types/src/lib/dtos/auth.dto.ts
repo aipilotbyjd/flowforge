@@ -32,6 +32,10 @@ export interface RefreshTokenDto {
   refreshToken: string;
 }
 
+export interface VerifyEmailDto {
+  token: string;
+}
+
 export interface LoginResponse {
   accessToken: string;
   refreshToken: string;

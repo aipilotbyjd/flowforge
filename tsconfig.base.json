@@ -21,14 +21,18 @@
     "target": "ES2020",
     "baseUrl": ".",
     "paths": {
-      "@flowforge/*": ["libs/*/src/index.ts"],
       "@flowforge/core/types": ["libs/core/types/src/index.ts"],
-      "@flowforge/data-access/database": [
-        "libs/data-access/database/src/index.ts"
-      ],
-      "@flowforge/workflow-engine/executor": [
-        "libs/workflow-engine/executor/src/index.ts"
-      ]
+      "@flowforge/core/entities": ["libs/core/entities/src/index.ts"],
+      "@flowforge/data-access/database": ["libs/data-access/database/src/index.ts"],
+      "@flowforge/data-access/repositories": ["libs/data-access/repositories/src/index.ts"],
+      "@flowforge/security/auth": ["libs/security/auth/src/index.ts"],
+      "@flowforge/security/rbac": ["libs/security/rbac/src/index.ts"],
+      "@flowforge/security/crypto": ["libs/security/crypto/src/index.ts"],
+      "@flowforge/workflow-engine/executor": ["libs/workflow-engine/executor/src/index.ts"],
+      "@flowforge/workflow-engine/compiler": ["libs/workflow-engine/compiler/src/index.ts"],
+      "@flowforge/workflow-engine/validator": ["libs/workflow-engine/validator/src/index.ts"],
+      "@flowforge/observability/logging": ["libs/observability/logging/src/index.ts"],
+      "@flowforge/*": ["libs/*/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

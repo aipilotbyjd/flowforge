@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToMany } from 'typeorm';
 import { User } from './user.entity';
 import { Workflow } from './workflow.entity';
+import { WorkflowExecution } from './workflow-execution.entity';
 import { Credential } from './credential.entity';
 import { WorkflowTag } from './workflow-tag.entity';
 import { ApiKey } from './api-key.entity';
@@ -40,4 +41,7 @@ export class Organization {
 
   @OneToMany(() => ApiKey, apiKey => apiKey.organization)
   apiKeys: ApiKey[];
+
+  @OneToMany(() => WorkflowExecution, execution => execution.organization)
+  workflowExecutions: WorkflowExecution[];
 }
