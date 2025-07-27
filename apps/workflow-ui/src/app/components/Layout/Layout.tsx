@@ -27,6 +27,11 @@ import {
   Settings as SettingsIcon,
   Notifications as NotificationsIcon,
   ExitToApp as LogoutIcon,
+  Extension as NodesIcon,
+  History as HistoryIcon,
+  FlashOn as TriggersIcon,
+  LibraryBooks as TemplatesIcon,
+  VpnKey as CredentialsIcon,
 } from '@mui/icons-material';
 import { useAuth } from '../../contexts/AuthContext';
 import { useNotification } from '../../contexts/NotificationContext';
@@ -50,6 +55,31 @@ const navigationItems: NavigationItem[] = [
     text: 'Workflows',
     icon: <WorkflowIcon />,
     path: '/workflows',
+  },
+  {
+    text: 'Nodes',
+    icon: <NodesIcon />,
+    path: '/nodes',
+  },
+  {
+    text: 'Templates',
+    icon: <TemplatesIcon />,
+    path: '/templates',
+  },
+  {
+    text: 'Triggers',
+    icon: <TriggersIcon />,
+    path: '/triggers',
+  },
+  {
+    text: 'Executions',
+    icon: <HistoryIcon />,
+    path: '/executions',
+  },
+  {
+    text: 'Credentials',
+    icon: <CredentialsIcon />,
+    path: '/credentials',
   },
 ];
 

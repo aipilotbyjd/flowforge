@@ -10,6 +10,11 @@ import WorkflowDetail from '../pages/Workflows/WorkflowDetail';
 import Profile from '../pages/Profile/Profile';
 import Settings from '../pages/Settings/Settings';
 import NotFound from '../pages/NotFound/NotFound';
+import Nodes from '../pages/Nodes/Nodes';
+import ExecutionHistory from '../pages/ExecutionHistory/ExecutionHistory';
+import Triggers from '../pages/Triggers/Triggers';
+import Templates from '../pages/Templates/Templates';
+import Credentials from '../pages/Credentials/Credentials';
 import { CircularProgress, Box } from '@mui/material';
 
 // Protected Route wrapper
@@ -107,6 +112,21 @@ const AppRoutes: React.FC = () => {
         {/* Workflows */}
         <Route path="workflows" element={<WorkflowList />} />
         <Route path="workflows/:id" element={<WorkflowDetail />} />
+        
+        {/* Nodes */}
+        <Route path="nodes" element={<Nodes />} />
+        
+        {/* Templates */}
+        <Route path="templates" element={<Templates />} />
+        
+        {/* Triggers */}
+        <Route path="triggers" element={<Triggers />} />
+        
+        {/* Execution History */}
+        <Route path="executions" element={<ExecutionHistory />} />
+        
+        {/* Credentials */}
+        <Route path="credentials" element={<Credentials />} />
         
         {/* User */}
         <Route path="profile" element={<Profile />} />
