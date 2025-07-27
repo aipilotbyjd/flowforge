@@ -1,12 +1,10 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { CssBaseline } from '@mui/material';
 import { AuthProvider } from './contexts/AuthContext';
 import { WorkflowProvider } from './contexts/WorkflowContext';
 import { NotificationProvider } from './contexts/NotificationContext';
 import AppRoutes from './routes/AppRoutes';
-import Layout from './components/Layout/Layout';
 
 const theme = createTheme({
   palette: {
@@ -60,17 +58,13 @@ export function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <BrowserRouter>
-        <AuthProvider>
-          <WorkflowProvider>
-            <NotificationProvider>
-              <Layout>
-                <AppRoutes />
-              </Layout>
-            </NotificationProvider>
-          </WorkflowProvider>
-        </AuthProvider>
-      </BrowserRouter>
+      <AuthProvider>
+        <WorkflowProvider>
+          <NotificationProvider>
+            <AppRoutes />
+          </NotificationProvider>
+        </WorkflowProvider>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

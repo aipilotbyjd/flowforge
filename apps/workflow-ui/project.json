@@ -14,7 +14,6 @@
         "outputPath": "dist/apps/workflow-ui",
         "index": "apps/workflow-ui/src/index.html",
         "main": "apps/workflow-ui/src/main.tsx",
-        "polyfills": [],
         "tsConfig": "apps/workflow-ui/tsconfig.app.json",
         "assets": [
           "apps/workflow-ui/src/favicon.ico",
