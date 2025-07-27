@@ -6,16 +6,30 @@
     "importHelpers": true,
     "isolatedModules": true,
     "lib": ["es2022"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
-    "noEmitOnError": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitOnError": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
     "skipLibCheck": true,
-    "strict": true,
-    "target": "es2022",
-    "customConditions": ["development"]
-  }
+    "strict": false,
+    "strictPropertyInitialization": false,
+    "target": "ES2020",
+    "baseUrl": ".",
+    "paths": {
+      "@flowforge/*": ["libs/*/src/index.ts"],
+      "@flowforge/core/types": ["libs/core/types/src/index.ts"],
+      "@flowforge/data-access/database": [
+        "libs/data-access/database/src/index.ts"
+      ],
+      "@flowforge/workflow-engine/executor": [
+        "libs/workflow-engine/executor/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
 }

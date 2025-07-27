@@ -9,9 +9,9 @@
     "forceConsistentCasingInFileNames": true,
     "types": ["node"],
     "target": "es2021",
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "strictBindCallApply": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*.ts"],

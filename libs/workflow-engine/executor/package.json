@@ -38,6 +38,7 @@
     }
   },
   "dependencies": {
+    "@flowforge/core-types": "*",
     "tslib": "^2.3.0"
   }
 }

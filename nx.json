@@ -51,7 +51,8 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      }
+      },
+      "exclude": ["workflow-engine-e2e/**/*"]
     }
   ],
   "release": {

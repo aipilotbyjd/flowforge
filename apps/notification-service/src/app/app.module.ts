@@ -1,0 +1,63 @@
+import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
+import { BullModule } from '@nestjs/bull';
+import { HttpModule } from '@nestjs/axios';
+import { DataAccessDatabaseModule } from '@flowforge/data-access/database';
+import { WorkflowEngineExecutorModule } from '@flowforge/workflow-engine/executor';
+import { InfrastructureQueueModule } from '@flowforge/infrastructure/queue';
+import { InfrastructureCacheModule } from '@flowforge/infrastructure/cache';
+import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityMetricsModule } from '@flowforge/observability/metrics';
+import { SecurityAuthModule } from '@flowforge/security/auth';
+import { ConnectorsEmailModule } from '@flowforge/connectors/email';
+import { ConnectorsMessagingModule } from '@flowforge/connectors/messaging';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
+import { NotificationsModule } from './notifications/notifications.module';
+import { CommunicationModule } from './communication/communication.module';
+import { HealthModule } from './health/health.module';
+
+@Module({
+  imports: [
+    // Core configuration
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: '.env',
+      expandVariables: true,
+    }),
+    
+    // External HTTP requests for integrations
+    HttpModule,
+    
+    // Queue management
+    BullModule.forRootAsync({
+      useFactory: () => ({
+        redis: {
+          host: process.env.REDIS_HOST || 'localhost',
+          port: parseInt(process.env.REDIS_PORT) || 6379,
+          password: process.env.REDIS_PASSWORD,
+        },
+      }),
+    }),
+    
+    // Infrastructure modules
+    DataAccessDatabaseModule,
+    WorkflowEngineExecutorModule,
+    InfrastructureQueueModule,
+    InfrastructureCacheModule,
+    ObservabilityLoggingModule,
+    ObservabilityMetricsModule,
+    SecurityAuthModule,
+    ConnectorsEmailModule,
+    ConnectorsMessagingModule,
+    
+    // Feature modules
+    NotificationsModule,
+    CommunicationModule,
+    HealthModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
+})
+export class AppModule {}
+
