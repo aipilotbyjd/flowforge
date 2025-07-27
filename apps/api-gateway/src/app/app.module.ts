@@ -11,6 +11,7 @@ import { AppService } from './app.service';
 // Feature modules
 import { AuthModule } from './auth/auth.module';
 import { WorkflowsModule } from './workflows/workflows.module';
+import { CredentialsModule } from './credentials/credentials.module';
 
 @Module({
   imports: [
@@ -27,6 +28,7 @@ import { WorkflowsModule } from './workflows/workflows.module';
     // Feature modules
     AuthModule,
     WorkflowsModule,
+    CredentialsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
