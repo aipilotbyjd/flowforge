@@ -1,10 +1,24 @@
 export enum ExecutionStatus {
-  PENDING = 'pending',
   RUNNING = 'running',
-  COMPLETED = 'completed',
-  FAILED = 'failed',
+  SUCCESS = 'success',
+  ERROR = 'error',
   CANCELLED = 'cancelled',
-  TIMEOUT = 'timeout',
   WAITING = 'waiting',
-  RETRYING = 'retrying'
+  PAUSED = 'paused',
+}
+
+export enum WorkflowExecutionStatus {
+  RUNNING = 'running',
+  SUCCESS = 'success',
+  ERROR = 'error',
+  CANCELLED = 'cancelled',
+  WAITING = 'waiting',
+  PAUSED = 'paused',
+}
+
+export enum WorkflowExecutionMode {
+  MANUAL = 'manual',
+  WEBHOOK = 'webhook',
+  SCHEDULE = 'schedule',
+  TRIGGER = 'trigger'
 }
