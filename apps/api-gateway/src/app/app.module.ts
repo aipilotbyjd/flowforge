@@ -12,6 +12,7 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { WorkflowsModule } from './workflows/workflows.module';
 import { CredentialsModule } from './credentials/credentials.module';
+import { WebSocketModule } from './websocket/websocket.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { CredentialsModule } from './credentials/credentials.module';
     AuthModule,
     WorkflowsModule,
     CredentialsModule,
+    WebSocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -7,3 +7,6 @@ export * from './lib/user-session.entity';
 export * from './lib/credential.entity';
 export * from './lib/api-key.entity';
 export * from './lib/workflow-tag.entity';
+export * from './lib/node-execution.entity';
+export * from './lib/schedule.entity';
+export * from './lib/webhook.entity';

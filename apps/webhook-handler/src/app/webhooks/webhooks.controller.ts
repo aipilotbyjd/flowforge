@@ -1,7 +1,8 @@
-import { Controller, Post, Get, Put, Delete, Body, Param, Query, Req, Res, All } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiQuery } from '@nestjs/swagger';
+import { Controller, Get, Post, Put, Delete, Param, Body, Query, Req, Res, HttpStatus, Logger, UseGuards, All } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { WebhooksService } from './webhooks.service';
+import { WebhookManagementService, WebhookRegistration } from './webhook-management.service';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody, ApiQuery } from '@nestjs/swagger';
 
 export interface WebhookConfig {
   id: string;
