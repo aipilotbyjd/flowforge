@@ -8,8 +8,10 @@ import {
   Typography,
   Alert,
   CircularProgress,
-  Container
+  Container,
+  Link
 } from '@mui/material';
+import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 const Login: React.FC = () => {
@@ -89,6 +91,15 @@ const Login: React.FC = () => {
                 {loading ? <CircularProgress size={24} /> : 'Sign In'}
               </Button>
             </form>
+
+            <Box textAlign="center" mt={2}>
+              <Typography variant="body2">
+                Don't have an account?{' '}
+                <Link component={RouterLink} to="/register" underline="hover">
+                  Register now
+                </Link>
+              </Typography>
+            </Box>
           </CardContent>
         </Card>
       </Box>

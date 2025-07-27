@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import Layout from '../components/Layout/Layout';
 import Login from '../pages/Login/Login';
+import Register from '../pages/Register/Register';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import WorkflowList from '../pages/Workflows/WorkflowList';
 import WorkflowDetail from '../pages/Workflows/WorkflowDetail';
@@ -76,6 +77,14 @@ const AppRoutes: React.FC = () => {
         element={
           <PublicRoute>
             <Login />
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/register"
+        element={
+          <PublicRoute>
+            <Register />
           </PublicRoute>
         }
       />

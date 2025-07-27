@@ -7,6 +7,13 @@ interface LoginRequest {
   password: string;
 }
 
+interface RegisterRequest {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
 interface LoginResponse {
   accessToken: string;
   refreshToken: string;
@@ -96,6 +103,15 @@ class AuthService {
       return response.data;
     } catch (error: any) {
       throw new Error(error.response?.data?.message || 'Login failed');
+    }
+  }
+
+  async register(userData: RegisterRequest): Promise<LoginResponse> {
+    try {
+      const response = await this.apiClient.post<LoginResponse>('/auth/register', userData);
+      return response.data;
+    } catch (error: any) {
+      throw new Error(error.response?.data?.message || 'Registration failed');
     }
   }
 

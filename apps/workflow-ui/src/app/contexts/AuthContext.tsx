@@ -82,6 +82,7 @@ const authReducer = (state: AuthState, action: AuthAction): AuthState => {
 interface AuthContextType {
   state: AuthState;
   login: (email: string, password: string) => Promise<void>;
+  register: (userData: { firstName: string; lastName: string; email: string; password: string }) => Promise<void>;
   logout: () => void;
   clearError: () => void;
 }
@@ -142,6 +143,24 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const register = async (userData: { firstName: string; lastName: string; email: string; password: string }) => {
+    try {
+      dispatch({ type: 'LOGIN_START' });
+      const result = await authService.register(userData);
+      
+      localStorage.setItem('accessToken', result.accessToken);
+      localStorage.setItem('refreshToken', result.refreshToken);
+      
+      dispatch({ type: 'LOGIN_SUCCESS', payload: result.user });
+    } catch (error: any) {
+      dispatch({ 
+        type: 'LOGIN_FAILURE', 
+        payload: error.message || 'Registration failed' 
+      });
+      throw error;
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('refreshToken');
@@ -155,6 +174,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const value: AuthContextType = {
     state,
     login,
+    register,
     logout,
     clearError,
   };
