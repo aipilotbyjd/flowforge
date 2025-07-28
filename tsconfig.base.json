@@ -25,23 +25,80 @@
     "target": "ES2020",
     "baseUrl": ".",
     "paths": {
-      "@flowforge/*": [
-        "libs/*/src/index.ts"
+      // Core libraries
+      "@flowforge/core/constants": [
+        "libs/core/constants/src/index.ts"
+      ],
+      "@flowforge/core/dtos": [
+        "libs/core/dtos/src/index.ts"
       ],
       "@flowforge/core/entities": [
         "libs/core/entities/src/index.ts"
       ],
+      "@flowforge/core/enums": [
+        "libs/core/enums/src/index.ts"
+      ],
       "@flowforge/core/types": [
         "libs/core/types/src/index.ts"
       ],
+      // Data access libraries
       "@flowforge/data-access/database": [
         "libs/data-access/database/src/index.ts"
+      ],
+      "@flowforge/data-access/migrations": [
+        "libs/data-access/migrations/src/index.ts"
       ],
       "@flowforge/data-access/repositories": [
         "libs/data-access/repositories/src/index.ts"
       ],
+      // Workflow engine libraries
+      "@flowforge/workflow-engine/compiler": [
+        "libs/workflow-engine/compiler/src/index.ts"
+      ],
+      "@flowforge/workflow-engine/executor": [
+        "libs/workflow-engine/executor/src/index.ts"
+      ],
+      "@flowforge/workflow-engine/expression-engine": [
+        "libs/workflow-engine/expression-engine/src/index.ts"
+      ],
+      "@flowforge/workflow-engine/optimizer": [
+        "libs/workflow-engine/optimizer/src/index.ts"
+      ],
+      "@flowforge/workflow-engine/validator": [
+        "libs/workflow-engine/validator/src/index.ts"
+      ],
+      // Connector libraries
+      "@flowforge/connectors/cloud": [
+        "libs/connectors/cloud/src/index.ts"
+      ],
+      "@flowforge/connectors/database": [
+        "libs/connectors/database/src/index.ts"
+      ],
+      "@flowforge/connectors/email": [
+        "libs/connectors/email/src/index.ts"
+      ],
+      "@flowforge/connectors/http": [
+        "libs/connectors/http/src/index.ts"
+      ],
+      "@flowforge/connectors/messaging": [
+        "libs/connectors/messaging/src/index.ts"
+      ],
+      // Observability libraries
       "@flowforge/observability/logging": [
         "libs/observability/logging/src/index.ts"
+      ],
+      "@flowforge/observability/metrics": [
+        "libs/observability/metrics/src/index.ts"
+      ],
+      "@flowforge/observability/monitoring": [
+        "libs/observability/monitoring/src/index.ts"
+      ],
+      "@flowforge/observability/tracing": [
+        "libs/observability/tracing/src/index.ts"
+      ],
+      // Security libraries
+      "@flowforge/security/audit": [
+        "libs/security/audit/src/index.ts"
       ],
       "@flowforge/security/auth": [
         "libs/security/auth/src/index.ts"
@@ -52,19 +109,45 @@
       "@flowforge/security/rbac": [
         "libs/security/rbac/src/index.ts"
       ],
-      "@flowforge/workflow-engine/compiler": [
-        "libs/workflow-engine/compiler/src/index.ts"
+      // Infrastructure libraries
+      "@flowforge/infrastructure/cache": [
+        "libs/infrastructure/cache/src/index.ts"
       ],
-      "@flowforge/workflow-engine/executor": [
-        "libs/workflow-engine/executor/src/index.ts"
+      "@flowforge/infrastructure/config": [
+        "libs/infrastructure/config/src/index.ts"
       ],
-      "@flowforge/workflow-engine/validator": [
-        "libs/workflow-engine/validator/src/index.ts"
+      "@flowforge/infrastructure/queue": [
+        "libs/infrastructure/queue/src/index.ts"
+      ],
+      "@flowforge/infrastructure/telemetry": [
+        "libs/infrastructure/telemetry/src/index.ts"
+      ],
+      // Testing libraries
+      "@flowforge/testing/factories": [
+        "libs/testing/factories/src/index.ts"
+      ],
+      "@flowforge/testing/fixtures": [
+        "libs/testing/fixtures/src/index.ts"
+      ],
+      "@flowforge/testing/helpers": [
+        "libs/testing/helpers/src/index.ts"
+      ],
+      "@flowforge/testing/mocks": [
+        "libs/testing/mocks/src/index.ts"
+      ],
+      // Generic fallback for any libraries not explicitly mapped
+      "@flowforge/*": [
+        "libs/*/src/index.ts"
       ]
     }
   },
   "exclude": [
     "node_modules",
-    "tmp"
+    "tmp",
+    "dist",
+    "coverage",
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/*.e2e-spec.ts"
   ]
 }
