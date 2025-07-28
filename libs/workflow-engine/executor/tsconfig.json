@@ -4,6 +4,15 @@
   "include": [],
   "references": [
     {
+      "path": "../../observability/monitoring"
+    },
+    {
+      "path": "../../observability/logging"
+    },
+    {
+      "path": "../../core/types"
+    },
+    {
       "path": "./tsconfig.lib.json"
     },
     {

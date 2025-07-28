@@ -1,6 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, OneToMany } from 'typeorm';
 import { Organization } from './organization.entity';
 import { WorkflowExecution } from './workflow-execution.entity';
+import { Schedule } from './schedule.entity';
+import { Webhook } from './webhook.entity';
 
 @Entity('workflows')
 export class Workflow {
@@ -43,4 +45,10 @@ export class Workflow {
 
   @OneToMany(() => WorkflowExecution, execution => execution.workflow)
   executions: WorkflowExecution[];
+
+  @OneToMany(() => Schedule, schedule => schedule.workflow)
+  schedules: Schedule[];
+
+  @OneToMany(() => Webhook, webhook => webhook.workflow)
+  webhooks: Webhook[];
 }

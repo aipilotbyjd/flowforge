@@ -2,6 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 import { Workflow } from './workflow.entity';
 import { User } from './user.entity';
 import { Organization } from './organization.entity';
+import { NodeExecution } from './node-execution.entity';
 
 export enum ExecutionStatus {
   PENDING = 'pending',
@@ -88,6 +89,9 @@ export class WorkflowExecution {
 
   @ManyToOne(() => Organization, organization => organization.workflowExecutions)
   organization: Organization;
+
+  @OneToMany(() => NodeExecution, nodeExecution => nodeExecution.workflowExecution)
+  nodeExecutions: NodeExecution[];
 
   // Virtual properties
   get duration(): number | null {

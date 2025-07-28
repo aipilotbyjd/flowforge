@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Credential, CredentialType } from '@flowforge/core/entities';
+import { Credential } from '../credential.entity';import { CredentialType } from '../credential.entity';
 
 @Injectable()
 export class CredentialsService {

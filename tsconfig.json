@@ -107,6 +107,9 @@
     },
     {
       "path": "./libs/testing/helpers"
+    },
+    {
+      "path": "./apps/workflow-ui"
     }
   ]
 }

@@ -31,7 +31,6 @@ export class SetNode implements INodeType {
         options: [
           {
             name: 'string',
-            displayName: 'String',
             values: [
               {
                 displayName: 'Name',
@@ -54,20 +53,29 @@ export class SetNode implements INodeType {
 
   async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
     const inputData = this.getInputData();
-    const returnData: INodeExecutionData[] = [];
+    const returnItems = [];
     const items = this.getNodeParameter('values.string', []) as Array<{
       name: string;
       value: string;
     }>;
 
     for (let itemIndex = 0; itemIndex < inputData.length; itemIndex++) {
-      returnData.push({ json: { ...inputData[itemIndex].json } });
+      const newItem = { ...inputData[itemIndex].json };
 
       for (const item of items) {
-        returnData[itemIndex].json[item.name] = item.value;
+        newItem[item.name] = item.value;
       }
+
+      returnItems.push({ json: newItem });
     }
 
-    return [returnData];
+    // Return as INodeExecutionData[][]
+    const nodeExecutionData: INodeExecutionData = {
+      data: {
+        main: [returnItems]
+      }
+    };
+
+    return [[nodeExecutionData]];
   }
 }

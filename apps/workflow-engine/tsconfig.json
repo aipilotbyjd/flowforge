@@ -4,6 +4,33 @@
   "include": [],
   "references": [
     {
+      "path": "../../libs/core/types"
+    },
+    {
+      "path": "../../libs/core/entities"
+    },
+    {
+      "path": "../../libs/security/auth"
+    },
+    {
+      "path": "../../libs/observability/logging"
+    },
+    {
+      "path": "../../libs/infrastructure/queue"
+    },
+    {
+      "path": "../../libs/data-access/database"
+    },
+    {
+      "path": "../../libs/workflow-engine/validator"
+    },
+    {
+      "path": "../../libs/workflow-engine/compiler"
+    },
+    {
+      "path": "../../libs/workflow-engine/executor"
+    },
+    {
       "path": "./tsconfig.app.json"
     },
     {

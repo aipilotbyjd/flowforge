@@ -9,5 +9,34 @@
     "target": "es2021"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"]
+  "exclude": ["jest.config.ts", "src/**/*.spec.ts", "src/**/*.test.ts"],
+  "references": [
+    {
+      "path": "../../libs/core/types/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/core/entities/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/security/auth/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/observability/logging/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/infrastructure/queue/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/data-access/database/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/workflow-engine/validator/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/workflow-engine/compiler/tsconfig.lib.json"
+    },
+    {
+      "path": "../../libs/workflow-engine/executor/tsconfig.lib.json"
+    }
+  ]
 }
