@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Organization } from '@flowforge/core/entities';
+import { Organization } from '@flowforge/core-entities';
 
 @Injectable()
 export class OrganizationRepository {
   constructor(
     @InjectRepository(Organization)
     private readonly organizationRepository: Repository<Organization>,
-  ) {}
+  ) { }
 
   async create(createOrgData: {
     name: string;
