@@ -1,0 +1,33 @@
+{
+  "name": "workflow-engine-data-transformer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/workflow-engine/data-transformer/src",
+  "projectType": "library",
+  "tags": ["scope:workflow-engine", "type:feature"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/workflow-engine/data-transformer",
+        "main": "libs/workflow-engine/data-transformer/src/index.ts",
+        "tsConfig": "libs/workflow-engine/data-transformer/tsconfig.lib.json",
+        "assets": ["libs/workflow-engine/data-transformer/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/workflow-engine/data-transformer/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/workflow-engine/data-transformer/jest.config.ts"
+      }
+    }
+  }
+}

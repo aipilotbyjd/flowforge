@@ -110,6 +110,12 @@
     },
     {
       "path": "./apps/workflow-ui"
+    },
+    {
+      "path": "./libs/workflow-engine/data-transformer"
+    },
+    {
+      "path": "./libs/security/credentials"
     }
   ]
 }
