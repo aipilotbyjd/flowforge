@@ -25,13 +25,13 @@ import { HealthModule } from './health/health.module';
       envFilePath: '.env',
       expandVariables: true,
     }),
-    
+
     // Scheduling for periodic data aggregation
     ScheduleModule.forRoot(),
-    
+
     // HTTP client for external data sources
     HttpModule,
-    
+
     // Queue management for async processing
     BullModule.forRootAsync({
       useFactory: () => ({
@@ -42,7 +42,7 @@ import { HealthModule } from './health/health.module';
         },
       }),
     }),
-    
+
     // Infrastructure modules
     DataAccessDatabaseModule,
     InfrastructureQueueModule,
@@ -51,7 +51,7 @@ import { HealthModule } from './health/health.module';
     ObservabilityMetricsModule,
     SecurityAuthModule,
     SecurityRbacModule,
-    
+
     // Feature modules
     ReportsModule,
     MetricsModule,
@@ -61,4 +61,4 @@ import { HealthModule } from './health/health.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

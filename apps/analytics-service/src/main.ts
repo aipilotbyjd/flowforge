@@ -7,7 +7,7 @@ import { AppModule } from './app/app.module';
 
 async function bootstrap() {
   const logger = new Logger('AnalyticsService');
-  
+
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({ logger: true }),
