@@ -5,7 +5,11 @@
     "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["es2022", "dom", "dom.iterable"],
+    "lib": [
+      "es2022",
+      "dom",
+      "dom.iterable"
+    ],
     "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
@@ -21,9 +25,15 @@
     "target": "ES2020",
     "baseUrl": ".",
     "paths": {
-      "@flowforge/*": ["libs/*/src/index.ts"],
-      "@flowforge/core/entities": ["libs/core/entities/src/index.ts"],
-      "@flowforge/core/types": ["libs/core/types/src/index.ts"],
+      "@flowforge/*": [
+        "libs/*/src/index.ts"
+      ],
+      "@flowforge/core/entities": [
+        "libs/core/entities/src/index.ts"
+      ],
+      "@flowforge/core/types": [
+        "libs/core/types/src/index.ts"
+      ],
       "@flowforge/data-access/database": [
         "libs/data-access/database/src/index.ts"
       ],
@@ -33,9 +43,15 @@
       "@flowforge/observability/logging": [
         "libs/observability/logging/src/index.ts"
       ],
-      "@flowforge/security/auth": ["libs/security/auth/src/index.ts"],
-      "@flowforge/security/crypto": ["libs/security/crypto/src/index.ts"],
-      "@flowforge/security/rbac": ["libs/security/rbac/src/index.ts"],
+      "@flowforge/security/auth": [
+        "libs/security/auth/src/index.ts"
+      ],
+      "@flowforge/security/crypto": [
+        "libs/security/crypto/src/index.ts"
+      ],
+      "@flowforge/security/rbac": [
+        "libs/security/rbac/src/index.ts"
+      ],
       "@flowforge/workflow-engine/compiler": [
         "libs/workflow-engine/compiler/src/index.ts"
       ],
@@ -47,5 +63,8 @@
       ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
