@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, LessThan } from 'typeorm';
-import { User, UserSession } from '@flowforge/core/entities';
+import { User, UserSession } from '@flowforge/core-entities';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()

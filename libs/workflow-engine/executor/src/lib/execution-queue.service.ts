@@ -4,10 +4,10 @@ import { Job, Queue } from 'bull';
 import { WorkflowEntity } from './types';
 import { WorkflowExecutorService } from './workflow-executor.service';
 import { NodeExecutorService } from './node-executor.service';
-import { LoggingService, LogContext } from '@flowforge/observability/logging';
-import { ErrorHandlerService } from '@flowforge/observability/monitoring';
-import { CircuitBreakerService } from '@flowforge/observability/monitoring';
-import { ExecutionMonitorService } from '@flowforge/observability/monitoring';
+import { LoggingService, LogContext } from '@flowforge/observability-logging';
+import { ErrorHandlerService } from '@flowforge/observability-monitoring';
+import { CircuitBreakerService } from '@flowforge/observability-monitoring';
+import { ExecutionMonitorService } from '@flowforge/observability-monitoring';
 
 export interface QueuedWorkflowExecution {
   id: string;

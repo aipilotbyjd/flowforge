@@ -22,80 +22,80 @@
     "baseUrl": ".",
     "paths": {
       "@flowforge/*": ["libs/*/src/index.ts"],
-      "@flowforge/connectors/cloud": ["libs/connectors/cloud/src/index.ts"],
-      "@flowforge/connectors/database": [
+      "@flowforge/connectors-cloud": ["libs/connectors/cloud/src/index.ts"],
+      "@flowforge/connectors-database": [
         "libs/connectors/database/src/index.ts"
       ],
-      "@flowforge/connectors/email": ["libs/connectors/email/src/index.ts"],
-      "@flowforge/connectors/http": ["libs/connectors/http/src/index.ts"],
-      "@flowforge/connectors/messaging": [
+      "@flowforge/connectors-email": ["libs/connectors/email/src/index.ts"],
+      "@flowforge/connectors-http": ["libs/connectors/http/src/index.ts"],
+      "@flowforge/connectors-messaging": [
         "libs/connectors/messaging/src/index.ts"
       ],
-      "@flowforge/core/constants": ["libs/core/constants/src/index.ts"],
-      "@flowforge/core/dtos": ["libs/core/dtos/src/index.ts"],
-      "@flowforge/core/entities": ["libs/core/entities/src/index.ts"],
-      "@flowforge/core/enums": ["libs/core/enums/src/index.ts"],
-      "@flowforge/core/types": ["libs/core/types/src/index.ts"],
-      "@flowforge/data-access/database": [
+      "@flowforge/core-constants": ["libs/core/constants/src/index.ts"],
+      "@flowforge/core-dtos": ["libs/core/dtos/src/index.ts"],
+      "@flowforge/core-entities": ["libs/core/entities/src/index.ts"],
+      "@flowforge/core-enums": ["libs/core/enums/src/index.ts"],
+      "@flowforge/core-types": ["libs/core/types/src/index.ts"],
+      "@flowforge/data-access-database": [
         "libs/data-access/database/src/index.ts"
       ],
-      "@flowforge/data-access/migrations": [
+      "@flowforge/data-access-migrations": [
         "libs/data-access/migrations/src/index.ts"
       ],
-      "@flowforge/data-access/repositories": [
+      "@flowforge/data-access-repositories": [
         "libs/data-access/repositories/src/index.ts"
       ],
-      "@flowforge/infrastructure/cache": [
+      "@flowforge/infrastructure-cache": [
         "libs/infrastructure/cache/src/index.ts"
       ],
-      "@flowforge/infrastructure/config": [
+      "@flowforge/infrastructure-config": [
         "libs/infrastructure/config/src/index.ts"
       ],
-      "@flowforge/infrastructure/queue": [
+      "@flowforge/infrastructure-queue": [
         "libs/infrastructure/queue/src/index.ts"
       ],
-      "@flowforge/infrastructure/telemetry": [
+      "@flowforge/infrastructure-telemetry": [
         "libs/infrastructure/telemetry/src/index.ts"
       ],
-      "@flowforge/observability/logging": [
+      "@flowforge/observability-logging": [
         "libs/observability/logging/src/index.ts"
       ],
-      "@flowforge/observability/metrics": [
+      "@flowforge/observability-metrics": [
         "libs/observability/metrics/src/index.ts"
       ],
-      "@flowforge/observability/monitoring": [
+      "@flowforge/observability-monitoring": [
         "libs/observability/monitoring/src/index.ts"
       ],
-      "@flowforge/observability/tracing": [
+      "@flowforge/observability-tracing": [
         "libs/observability/tracing/src/index.ts"
       ],
-      "@flowforge/security/audit": ["libs/security/audit/src/index.ts"],
-      "@flowforge/security/auth": ["libs/security/auth/src/index.ts"],
-      "@flowforge/security/credentials": [
+      "@flowforge/security-audit": ["libs/security/audit/src/index.ts"],
+      "@flowforge/security-auth": ["libs/security/auth/src/index.ts"],
+      "@flowforge/security-credentials": [
         "libs/security/credentials/src/index.ts"
       ],
-      "@flowforge/security/crypto": ["libs/security/crypto/src/index.ts"],
-      "@flowforge/security/rbac": ["libs/security/rbac/src/index.ts"],
-      "@flowforge/testing/factories": ["libs/testing/factories/src/index.ts"],
-      "@flowforge/testing/fixtures": ["libs/testing/fixtures/src/index.ts"],
-      "@flowforge/testing/helpers": ["libs/testing/helpers/src/index.ts"],
-      "@flowforge/testing/mocks": ["libs/testing/mocks/src/index.ts"],
-      "@flowforge/workflow-engine/compiler": [
+      "@flowforge/security-crypto": ["libs/security/crypto/src/index.ts"],
+      "@flowforge/security-rbac": ["libs/security/rbac/src/index.ts"],
+      "@flowforge/testing-factories": ["libs/testing/factories/src/index.ts"],
+      "@flowforge/testing-fixtures": ["libs/testing/fixtures/src/index.ts"],
+      "@flowforge/testing-helpers": ["libs/testing/helpers/src/index.ts"],
+      "@flowforge/testing-mocks": ["libs/testing/mocks/src/index.ts"],
+      "@flowforge/workflow-engine-compiler": [
         "libs/workflow-engine/compiler/src/index.ts"
       ],
-      "@flowforge/workflow-engine/data-transformer": [
+      "@flowforge/workflow-engine-data-transformer": [
         "libs/workflow-engine/data-transformer/src/index.ts"
       ],
-      "@flowforge/workflow-engine/executor": [
+      "@flowforge/workflow-engine-executor": [
         "libs/workflow-engine/executor/src/index.ts"
       ],
-      "@flowforge/workflow-engine/expression-engine": [
+      "@flowforge/workflow-engine-expression-engine": [
         "libs/workflow-engine/expression-engine/src/index.ts"
       ],
-      "@flowforge/workflow-engine/optimizer": [
+      "@flowforge/workflow-engine-optimizer": [
         "libs/workflow-engine/optimizer/src/index.ts"
       ],
-      "@flowforge/workflow-engine/validator": [
+      "@flowforge/workflow-engine-validator": [
         "libs/workflow-engine/validator/src/index.ts"
       ]
     }

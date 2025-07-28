@@ -4,8 +4,8 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
-import { User, UserSession, Organization } from '@flowforge/core/entities';
-import { LoginDto, RegisterDto } from '@flowforge/core/types';
+import { User, UserSession, Organization } from '@flowforge/core-entities';
+import { LoginDto, RegisterDto } from '@flowforge/core-types';
 
 @Injectable()
 export class AuthService {

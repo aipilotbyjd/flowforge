@@ -1,7 +1,8 @@
 import { Injectable, NotFoundException, InternalServerErrorException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Credential } from '../credential.entity';import { CredentialType } from '../credential.entity';
+import { Credential } from '../credential.entity';
+import { CredentialType } from '../credential.entity';
 
 @Injectable()
 export class CredentialsService {

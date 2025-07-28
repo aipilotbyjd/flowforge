@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Job } from 'bull';
 import { WorkflowExecutionService } from './workflow-execution.service';
 import { WorkflowExecutorService } from '@flowforge/workflow-engine/executor';
-import { WorkflowExecutionStatus } from '@flowforge/core/types';
+import { WorkflowExecutionStatus } from '@flowforge/core-types';
 
 interface WorkflowExecutionJob {
   executionId: string;

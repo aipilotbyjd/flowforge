@@ -2,7 +2,7 @@ import { Controller, Get, Query, Param, Post, Body } from '@nestjs/common';
 import { ExecutionMonitorService } from './execution-monitor.service';
 import { ErrorHandlerService } from './error-handler.service';
 import { CircuitBreakerService } from './circuit-breaker.service';
-import { LoggingService } from '@flowforge/observability/logging';
+import { LoggingService } from '@flowforge/observability-logging';
 
 @Controller('monitoring')
 export class MonitoringController {

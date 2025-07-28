@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
-import { Workflow, WorkflowExecution } from '@flowforge/core/entities';
+import { Workflow, WorkflowExecution } from '@flowforge/core-entities';
 import { WorkflowExecutionService } from './workflow-execution.service';
 import { WorkflowExecutionController } from './workflow-execution.controller';
 import { WorkflowExecutionProcessor } from './workflow-execution.processor';

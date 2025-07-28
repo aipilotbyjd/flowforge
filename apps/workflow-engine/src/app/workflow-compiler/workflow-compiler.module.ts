@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Workflow } from '@flowforge/core/entities';
+import { Workflow } from '@flowforge/core-entities';
 import { WorkflowCompilerService } from './workflow-compiler.service';
 import { WorkflowCompilerController } from './workflow-compiler.controller';
 

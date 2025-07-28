@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ConfigService } from '@nestjs/config';
 import * as crypto from 'crypto';
-import { Credential, CredentialType } from '@flowforge/core/entities';
+import { Credential, CredentialType } from '@flowforge/core-entities';
 
 interface CreateCredentialDto {
   name: string;

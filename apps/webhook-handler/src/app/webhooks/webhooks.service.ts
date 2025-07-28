@@ -2,7 +2,7 @@ import { Injectable, Logger, NotFoundException, BadRequestException } from '@nes
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { HttpService } from '@nestjs/axios';
-import { Workflow } from '@flowforge/core/entities';
+import { Workflow } from '@flowforge/core-entities';
 import { WebhookManagementService, WebhookRegistration, WebhookExecution } from './webhook-management.service';
 
 // Import webhook entity if it exists, otherwise define interface

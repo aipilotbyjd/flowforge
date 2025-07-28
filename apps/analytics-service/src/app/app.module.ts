@@ -6,7 +6,7 @@ import { HttpModule } from '@nestjs/axios';
 import { DataAccessDatabaseModule } from '@flowforge/data-access/database';
 import { InfrastructureQueueModule } from '@flowforge/infrastructure/queue';
 import { InfrastructureCacheModule } from '@flowforge/infrastructure/cache';
-import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityLoggingModule } from '@flowforge/observability-logging';
 import { ObservabilityMetricsModule } from '@flowforge/observability/metrics';
 import { SecurityAuthModule } from '@flowforge/security/auth';
 import { SecurityRbacModule } from '@flowforge/security/rbac';

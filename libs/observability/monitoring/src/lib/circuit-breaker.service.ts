@@ -1,5 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { LoggingService, LogContext } from '@flowforge/observability/logging';
+import { LoggingService, LogContext } from '@flowforge/observability-logging';
 
 export enum CircuitState {
   CLOSED = 'closed',     // Normal operation

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { BullModule } from '@nestjs/bull';
-import { Workflow } from '@flowforge/core/entities';
+import { Workflow } from '@flowforge/core-entities';
 import { SchedulesController } from './schedules.controller';
 import { SchedulesService } from './schedules.service';
 import { ScheduleProcessor } from './schedule.processor';

@@ -2,7 +2,7 @@ import { Injectable, Logger, BadRequestException, ConflictException, NotFoundExc
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { randomBytes } from 'crypto';
-import { WorkflowExecution } from '@flowforge/core/entities';
+import { WorkflowExecution } from '@flowforge/core-entities';
 
 export interface WebhookRegistration {
   id: string;

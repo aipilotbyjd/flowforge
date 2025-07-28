@@ -6,7 +6,7 @@ import { WorkflowEngineValidatorModule } from '@flowforge/workflow-engine/valida
 import { DataAccessRepositoriesModule } from '@flowforge/data-access/repositories';
 import { SecurityAuthModule } from '@flowforge/security/auth';
 import { SecurityRbacModule } from '@flowforge/security/rbac';
-import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityLoggingModule } from '@flowforge/observability-logging';
 import { WorkflowsController } from './workflows.controller';
 import { WorkflowsService } from './workflows.service';
 import { WorkflowExecutionProcessor } from './workflow-execution.processor';

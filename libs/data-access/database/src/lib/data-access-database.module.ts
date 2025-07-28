@@ -10,7 +10,7 @@ import {
   Credential,
   ApiKey,
   WorkflowTag
-} from '@flowforge/core/entities';
+} from '@flowforge/core-entities';
 
 @Global()
 @Module({

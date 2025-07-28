@@ -5,7 +5,7 @@ import { Cron, CronExpression } from '@nestjs/schedule';
 import { Repository } from 'typeorm';
 import { Queue } from 'bull';
 import * as cronParser from 'cron-parser';
-import { Workflow } from '@flowforge/core/entities';
+import { Workflow } from '@flowforge/core-entities';
 
 // Define Schedule interface (would normally be imported from entities)
 interface Schedule {

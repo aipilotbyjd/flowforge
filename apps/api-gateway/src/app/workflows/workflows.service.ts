@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException, BadRequestException, Logger } from '@nestjs/common';
 import { InjectQueue } from '@nestjs/bull';
 import { Queue } from 'bull';
-import { CreateWorkflowDto, UpdateWorkflowDto, ExecuteWorkflowDto } from '@flowforge/core/types';
+import { CreateWorkflowDto, UpdateWorkflowDto, ExecuteWorkflowDto } from '@flowforge/core-types';
 
 export interface WorkflowNode {
   id: string;

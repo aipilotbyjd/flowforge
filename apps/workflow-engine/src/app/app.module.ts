@@ -6,7 +6,7 @@ import { WorkflowEngineCompilerModule } from '@flowforge/workflow-engine/compile
 import { WorkflowEngineValidatorModule } from '@flowforge/workflow-engine/validator';
 import { DataAccessDatabaseModule } from '@flowforge/data-access/database';
 import { InfrastructureQueueModule } from '@flowforge/infrastructure/queue';
-import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityLoggingModule } from '@flowforge/observability-logging';
 import { SecurityAuthModule } from '@flowforge/security/auth';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';

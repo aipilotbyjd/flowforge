@@ -6,7 +6,7 @@ import { DataAccessDatabaseModule } from '@flowforge/data-access/database';
 import { WorkflowEngineExecutorModule } from '@flowforge/workflow-engine/executor';
 import { InfrastructureQueueModule } from '@flowforge/infrastructure/queue';
 import { InfrastructureCacheModule } from '@flowforge/infrastructure/cache';
-import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityLoggingModule } from '@flowforge/observability-logging';
 import { ObservabilityMetricsModule } from '@flowforge/observability/metrics';
 import { SecurityAuthModule } from '@flowforge/security/auth';
 import { AppController } from './app.controller';

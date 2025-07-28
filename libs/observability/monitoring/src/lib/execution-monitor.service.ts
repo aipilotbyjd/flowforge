@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Interval } from '@nestjs/schedule';
-import { LoggingService, LogContext } from '@flowforge/observability/logging';
+import { LoggingService, LogContext } from '@flowforge/observability-logging';
 
 export interface ExecutionMetrics {
   totalExecutions: number;

@@ -21,7 +21,7 @@ import {
   ApiBody,
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '@flowforge/security/auth';
-import { CredentialType } from '@flowforge/core/entities';
+import { CredentialType } from '@flowforge/core-entities';
 import { CredentialsService } from './credentials.service';
 
 class CreateCredentialDto {

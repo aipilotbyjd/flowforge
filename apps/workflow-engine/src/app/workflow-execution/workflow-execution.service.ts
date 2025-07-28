@@ -3,12 +3,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { InjectQueue } from '@nestjs/bull';
 import { Repository } from 'typeorm';
 import { Queue } from 'bull';
-import { Workflow, WorkflowExecution } from '@flowforge/core/entities';
+import { Workflow, WorkflowExecution } from '@flowforge/core-entities';
 import {
   ExecuteWorkflowDto,
   WorkflowExecutionStatus,
   WorkflowExecutionMode,
-} from '@flowforge/core/types';
+} from '@flowforge/core-types';
 
 @Injectable()
 export class WorkflowExecutionService {

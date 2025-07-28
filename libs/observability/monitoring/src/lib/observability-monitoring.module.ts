@@ -1,6 +1,6 @@
 import { Module, Global } from '@nestjs/common';
 import { ScheduleModule } from '@nestjs/schedule';
-import { ObservabilityLoggingModule } from '@flowforge/observability/logging';
+import { ObservabilityLoggingModule } from '@flowforge/observability-logging';
 import { ErrorHandlerService } from './error-handler.service';
 import { CircuitBreakerService } from './circuit-breaker.service';
 import { ExecutionMonitorService } from './execution-monitor.service';

@@ -18,7 +18,7 @@ import {
   ApiQuery,
 } from '@nestjs/swagger';
 import { JwtAuthGuard } from '@flowforge/security/auth';
-import { ExecuteWorkflowDto } from '@flowforge/core/types';
+import { ExecuteWorkflowDto } from '@flowforge/core-types';
 import { WorkflowExecutionService } from './workflow-execution.service';
 
 @ApiTags('workflow-execution')

@@ -2,7 +2,7 @@ import { Injectable, InternalServerErrorException, UnauthorizedException, BadReq
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { UserRepository, OrganizationRepository } from '@flowforge/data-access/repositories';
-import { User, UserRole } from '@flowforge/core/entities';
+import { User, UserRole } from '@flowforge/core-entities';
 
 interface LoginDto {
   email: string;
